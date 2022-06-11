@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "542463959493",
+    "project_id": "pbm-a14",
+    "storage_bucket": "pbm-a14.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:542463959493:android:e02b45252fa582017f6bac",
+        "android_client_info": {
+          "package_name": "programmerhandal.com.kopi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "542463959493-qo3ej7bc8sn7mms213ul9qmb2s68a73k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuPUZx1790W2IcZIWXUjWAFenc_xaxavY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "542463959493-qo3ej7bc8sn7mms213ul9qmb2s68a73k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
