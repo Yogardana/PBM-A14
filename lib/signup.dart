@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kopi/Home.dart';
 
 class Signupscreen extends StatefulWidget {
   @override
@@ -6,15 +7,102 @@ class Signupscreen extends StatefulWidget {
 }
 
 class _Signupscreen extends State<Signupscreen> {
-  var kHintTextStyle;
+  get kHintTextStyle => null;
 
   get kBoxDecorationStyle => null;
 
-  Widget _buildPasswordTF() {
+  Widget _buildUsername() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text('Password'),
+        Text('Username', style: TextStyle(fontSize: 20)),
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: kBoxDecorationStyle,
+          height: 60.0,
+          child: TextField(
+            keyboardType: TextInputType.name,
+            style: TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14.0),
+              prefixIcon: Icon(
+                Icons.people,
+                color: Colors.white,
+              ),
+              hintText: 'Masukkan Username',
+              hintStyle: kHintTextStyle,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget _buildNomor() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text('Nomor Telepon', style: TextStyle(fontSize: 20)),
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: kBoxDecorationStyle,
+          height: 60.0,
+          child: TextField(
+            keyboardType: TextInputType.number,
+            style: TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14.0),
+              prefixIcon: Icon(
+                Icons.phone,
+                color: Colors.white,
+              ),
+              hintText: 'Masukkan Nomor ',
+              hintStyle: kHintTextStyle,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget _buildEmail() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text('Email', style: TextStyle(fontSize: 20)),
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: kBoxDecorationStyle,
+          height: 60.0,
+          child: TextField(
+            keyboardType: TextInputType.emailAddress,
+            style: TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14.0),
+              prefixIcon: Icon(
+                Icons.email,
+                color: Colors.white,
+              ),
+              hintText: "Masukkan Email ",
+              hintStyle: kHintTextStyle,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget _buildPassword() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text('Password', style: TextStyle(fontSize: 20)),
         SizedBox(height: 10.0),
         Container(
           alignment: Alignment.centerLeft,
@@ -22,7 +110,7 @@ class _Signupscreen extends State<Signupscreen> {
           height: 60.0,
           child: TextField(
             obscureText: true,
-            // keyboardType: TextInputType.PasswordAddress,
+            keyboardType: TextInputType.visiblePassword,
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
               border: InputBorder.none,
@@ -40,93 +128,26 @@ class _Signupscreen extends State<Signupscreen> {
     );
   }
 
-  Widget _buildemailTF() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text('Password'),
-        SizedBox(height: 10.0),
-        Container(
-          alignment: Alignment.centerLeft,
-          decoration: kBoxDecorationStyle,
-          height: 60.0,
-          child: TextField(
-            obscureText: true,
-            // keyboardType: TextInputType.PasswordAddress,
-            style: TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
-              prefixIcon: Icon(
-                Icons.lock,
-                color: Colors.white,
-              ),
-              hintText: 'Masukkan Password ',
-              hintStyle: kHintTextStyle,
-            ),
+  Widget _buildSignUpbtn() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 25.0),
+      width: double.infinity,
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Home()));
+        },
+        child: Text(
+          'Sign Up',
+          style: TextStyle(
+            color: Color.fromARGB(255, 255, 255, 255),
+            letterSpacing: 1.5,
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'OpenSans',
           ),
-        )
-      ],
-    );
-  }
-
-  Widget _buildnamaTF() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text('Password'),
-        SizedBox(height: 10.0),
-        Container(
-          alignment: Alignment.centerLeft,
-          decoration: kBoxDecorationStyle,
-          height: 60.0,
-          child: TextField(
-            obscureText: true,
-            // keyboardType: TextInputType.PasswordAddress,
-            style: TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
-              prefixIcon: Icon(
-                Icons.lock,
-                color: Colors.white,
-              ),
-              hintText: 'Masukkan Password ',
-              hintStyle: kHintTextStyle,
-            ),
-          ),
-        )
-      ],
-    );
-  }
-
-  Widget _buildttlTF() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text('Password'),
-        SizedBox(height: 10.0),
-        Container(
-          alignment: Alignment.centerLeft,
-          decoration: kBoxDecorationStyle,
-          height: 60.0,
-          child: TextField(
-            obscureText: true,
-            // keyboardType: TextInputType.PasswordAddress,
-            style: TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
-              prefixIcon: Icon(
-                Icons.lock,
-                color: Colors.white,
-              ),
-              hintText: 'Masukkan Password ',
-              hintStyle: kHintTextStyle,
-            ),
-          ),
-        )
-      ],
+        ),
+      ),
     );
   }
 
@@ -143,10 +164,10 @@ class _Signupscreen extends State<Signupscreen> {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Color.fromARGB(255, 239, 155, 81),
-                  Color.fromARGB(255, 189, 144, 32),
-                  Color.fromARGB(255, 168, 113, 18),
-                  Color.fromARGB(255, 150, 101, 4),
+                  Color.fromARGB(255, 205, 166, 146),
+                  Color.fromARGB(255, 184, 141, 119),
+                  Color.fromARGB(255, 186, 148, 129),
+                  Color.fromARGB(255, 115, 91, 79),
                 ],
                 stops: [0.1, 0.4, 0.7, 0.9],
               ),
@@ -175,10 +196,11 @@ class _Signupscreen extends State<Signupscreen> {
                     SizedBox(
                       height: 30.0,
                     ),
-                    _buildPasswordTF(),
-                    _buildemailTF(),
-                    _buildnamaTF(),
-                    _buildttlTF(),
+                    _buildUsername(),
+                    _buildNomor(),
+                    _buildEmail(),
+                    _buildPassword(),
+                    _buildSignUpbtn(),
                   ]),
             ),
           ),

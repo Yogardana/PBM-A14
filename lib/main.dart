@@ -1,93 +1,44 @@
-import 'package:coffeestore/launcher.dart';
-import 'package:coffeestore/pilihan.dart';
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
+// import 'package:flutter_application_1/Logout.dart';
+// import 'package:flutter_application_1/cart.dart';
+import 'package:kopi/chat/chat.dart';
+// import 'package:flutter_application_1/dashboard.dart';
+// import 'package:flutter_application_1/edit_profil.dart';
+import 'package:kopi/home.dart';
+import 'package:kopi/launcher.dart';
+import 'package:kopi/location/location_provider.dart';
+// import 'package:flutter_application_1/profile.dart';
+// import 'package:flutter_application_1/signup.dart';
+// import 'package:flutter_application_1/ubah_alamat.dart';
+// import 'package:flutter_application_1/ubah_email.dart';
+// import 'package:flutter_application_1/ubah_gender.dart';
+// import 'package:flutter_application_1/ubah_nama.dart';
+// import 'package:flutter_application_1/ubah_nohp.dart';
+import 'package:provider/provider.dart';
+// import 'add_to_cart.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-void main() => runApp(new MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Launcher(),
-    );
-  }
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(ChangeNotifierProvider(
+    create: (context) => LocationProvider(),
+    child: const MyApp(),
+  ));
 }
 
-class Launcher extends StatelessWidget {
-  const Launcher({
-    Key? key,
-  }) : super(key: key);
-
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 205, 166, 146),
-        body: SafeArea(
-            child: Column(
-          children: [
-            Container(
-              child: Image.asset('assets/image11.png'),
-              alignment: const Alignment(1, 0),
-            ),
-            Container(
-              child: Image.asset('assets/coffee.png'),
-            ),
-            Container(
-                alignment: Alignment.center,
-                child: const Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "CoffeeStore",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 50,
-                        color: Colors.white,
-                        fontFamily: "Poppins"),
-                  ),
-                )),
-            Container(
-                alignment: Alignment.center,
-                child: const Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "Aplikasi pemesanan kopi",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                      fontFamily: "Poppins",
-                    ),
-                  ),
-                )),
-            Container(
-              padding: const EdgeInsets.all(15),
-              child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) {
-                          return const Pilihan();
-                        },
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(300, 50),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50)),
-                      primary: const Color.fromARGB(255, 32, 199, 99)),
-                  child: const Text(
-                    "Mulai",
-                    style: TextStyle(fontSize: 30, fontFamily: "Poppins"),
-                  )),
-            ),
-          ],
-        )),
-      ),
-    );
+    return StreamBuilder(builder: (context, snapshot) {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: launcher(),
+      );
+    });
   }
 }

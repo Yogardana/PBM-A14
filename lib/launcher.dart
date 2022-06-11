@@ -1,71 +1,92 @@
-import 'package:coffeestore/constans.dart';
 import 'package:flutter/material.dart';
+import 'package:kopi/launcher.dart';
+import 'package:kopi/login.dart';
 
-class LauncherPage extends StatefulWidget {
-  const LauncherPage({Key? key, required this.title}) : super(key: key);
+void main() => runApp(new MyApp());
 
-  final String title;
-
+class MyApp extends StatelessWidget {
   @override
-  State<LauncherPage> createState() => _LauncherPageState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: launcher(),
+    );
+  }
 }
 
-class _LauncherPageState extends State<LauncherPage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class launcher extends StatelessWidget {
+  const launcher({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20),
-          height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoretion(
-            borderRadius: BorderRadius.all(Radius.circular(0)),
-            boxShadow: <BoxShadow>[
-              BoxShadow(
-                  color: Colors.grey.shade200,
-                  offset: Offset(2, 4),
-                  blurRadius: 5,
-                  spreadRadius: 2)
-            ],
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Palette.bg1, Palette.bg2]),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              new Center(
-                child: new Image.asset(
-                  "assets/coffee.png",
-                  height: 90.0,
-                  width: 270.0,
-                ),
-              ),
-            ],
-          ),
-        )
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: _incrementCounter,
-        //   tooltip: 'Increment',
-        //   child: const Icon(Icons.add),
-        // ),
-        );
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: const Color.fromARGB(255, 205, 166, 146),
+        body: SafeArea(
+            child: Column(
+          children: [
+            Container(
+              child: Image.asset('assets/image11.png'),
+              alignment: const Alignment(1, 0),
+            ),
+            Container(
+              child: Image.asset('assets/coffee.png'),
+            ),
+            Container(
+                alignment: Alignment.center,
+                child: const Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "CoffeeStore",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 50,
+                        color: Colors.white,
+                        fontFamily: "Poppins"),
+                  ),
+                )),
+            Container(
+                alignment: Alignment.center,
+                child: const Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Aplikasi pemesanan kopi",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontFamily: "Poppins",
+                    ),
+                  ),
+                )),
+            Container(
+              padding: const EdgeInsets.all(15),
+              child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) {
+                          return LoginScreen();
+                        },
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(300, 50),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50)),
+                      primary: const Color.fromARGB(255, 32, 199, 99)),
+                  child: const Text(
+                    "Mulai",
+                    style: TextStyle(fontSize: 30, fontFamily: "Poppins"),
+                  )),
+            ),
+          ],
+        )),
+      ),
+    );
   }
-
-  BoxDecoretion(
-      {BorderRadius? borderRadius,
-      List<BoxShadow>? boxShadow,
-      LinearGradient? gradient}) {}
 }

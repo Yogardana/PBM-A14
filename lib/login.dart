@@ -1,10 +1,6 @@
-// ignore_for_file: deprecated_member_use
-
-import 'package:meta/dart2js.dart';
-
-import 'package:coffeestore/screens/homepage.dart';
-import 'package:coffeestore/signup.dart';
 import 'package:flutter/material.dart';
+import 'package:kopi/Home.dart';
+import 'package:kopi/signup.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -22,17 +18,17 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text('Email'),
-        SizedBox(height: 10.0),
+        SizedBox(height: 7),
         Container(
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
-          height: 60.0,
+          height: 40.0,
           child: TextField(
             keyboardType: TextInputType.emailAddress,
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
               border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
+              contentPadding: EdgeInsets.only(top: 9.0),
               prefixIcon: Icon(
                 Icons.email,
                 color: Colors.white,
@@ -51,18 +47,18 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text('Password'),
-        SizedBox(height: 10.0),
+        SizedBox(height: 7),
         Container(
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
-          height: 60.0,
+          height: 40,
           child: TextField(
             obscureText: true,
             // keyboardType: TextInputType.PasswordAddress,
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
               border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
+              contentPadding: EdgeInsets.only(top: 9),
               prefixIcon: Icon(
                 Icons.lock,
                 color: Colors.white,
@@ -80,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
       alignment: Alignment.centerRight,
       child: ElevatedButton(
-        onPressed: () => print('lupa kunci password'),
+        onPressed: () => print('lupa password'),
         child: Text('Lupa Password?'),
         // padding: EdgeInsets.only(right: 0.0),
       ),
@@ -114,21 +110,15 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 25.0),
       width: double.infinity,
-      child: RaisedButton(
-        elevation: 5.0,
+      child: ElevatedButton(
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => BottomWidget()));
+              context, MaterialPageRoute(builder: (context) => Home()));
         },
-        padding: EdgeInsets.all(15.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30.0),
-        ),
-        color: Colors.white,
         child: Text(
           'LOGIN',
           style: TextStyle(
-            color: Color.fromARGB(255, 129, 93, 2),
+            color: Color.fromARGB(255, 255, 255, 255),
             letterSpacing: 1.5,
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
@@ -144,12 +134,18 @@ class _LoginScreenState extends State<LoginScreen> {
       children: <Widget>[
         Text(
           '- OR -',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w400),
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w400,
+          ),
         ),
-        SizedBox(height: 20.0),
+        SizedBox(height: 10.0),
         Text(
           'Sign in with',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 15,
+          ),
         ),
       ],
     );
@@ -198,7 +194,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
                 image: DecorationImage(
-                  image: AssetImage('assets/google.jfif'),
+                  image: AssetImage('assets/google2.png'),
                 ),
               ),
             ),
@@ -233,7 +229,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Sign In'),
-        backgroundColor: Color.fromARGB(255, 241, 165, 50),
+        backgroundColor: Color.fromARGB(255, 110, 73, 55),
       ),
       body: Stack(
         children: <Widget>[
@@ -245,10 +241,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Color.fromARGB(255, 239, 155, 81),
-                  Color.fromARGB(255, 189, 144, 32),
-                  Color.fromARGB(255, 168, 113, 18),
-                  Color.fromARGB(255, 150, 101, 4),
+                  Color.fromARGB(255, 205, 166, 146),
+                  Color.fromARGB(255, 184, 141, 119),
+                  Color.fromARGB(255, 186, 148, 129),
+                  Color.fromARGB(255, 115, 91, 79),
                 ],
                 stops: [0.1, 0.4, 0.7, 0.9],
               ),
@@ -260,10 +256,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 physics: AlwaysScrollableScrollPhysics(),
                 padding: EdgeInsets.symmetric(
                   horizontal: 40.0,
-                  vertical: 120.0,
+                  vertical: 60.0,
                 ),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  // mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
                       'Sign In',
