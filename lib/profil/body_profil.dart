@@ -31,7 +31,7 @@ class body_profil extends StatelessWidget {
             press: () => {
               Navigator.push(context,
                   MaterialPageRoute(builder: (BuildContext ctx) {
-                return const Maps();
+                return Maps();
               }))
             },
           ),
